@@ -1,0 +1,41 @@
+<div class="container">
+	<h3 class="text-center">Indicador</h3>
+    <h5>Codigo indicador: {{ indicatorAtual?.indicator?.id }} </h5>
+    <h5>Descrição: {{ indicatorAtual?.indicator?.value }}</h5>
+
+<div class="container">
+    
+    <div class="table-responsive">
+        <table class="table table-bordered p-0 m-0">
+            <thead>
+                <tr>
+                    <th scope="col">indicador</th>
+                    <th scope="col">data</th>
+                    <th scope="col">valor</th>
+                    <th scope="col">unidade</th>
+                    <th scope="col">obs</th>
+                    <th scope="col">decimal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" *ngFor="let indicator of indicators">
+                    <td>{{ indicator.indicator.value }}</td>
+                    <td>{{ indicator.date }}</td>
+                    <td>{{ indicator.value }}</td>
+                    <td>{{ indicator.unit }}</td>
+                    <td>{{ indicator.obs_status }}</td>
+                    <td>{{ indicator.decimal }}</td>
+                </tr>
+                <tr scope="row" *ngIf="indicators.length === 0">
+                    <td colspan="6" class="text-center">nenhum registro encontrado</td>
+                </tr>
+            </tbody>
+        </table>
+        <mat-paginator 
+        [pageSizeOptions]="[5, 10, 15, 30]" 
+        [pageSize]="5" 
+        [length]="totalElements"
+        (page)="nextPage($event)">
+    </mat-paginator>
+    </div>
+</div>
