@@ -9,7 +9,7 @@ Para executar:
 docker compose up -d
 
 Acessar a aplicacao:
-http://localhost:8081/
+http://localhost:4200/
 
 Documentacao SwaggerUI
 http://localhost:8080/swagger-ui/index.html
